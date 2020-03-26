@@ -66,7 +66,7 @@ var PDFAnnotate = function(container_id, url, options = {}) {
 				fabricObj.on('object:added', function() {
 					var oldValue = Object.assign({}, inst.fabricObjectsData[index]);
 					inst.fabricObjectsData[index] = fabricObj.toJSON()
-					options.onPageUpdated(index + 1, oldValue, inst.fabricObjectsData[index]) 
+					options.onPageUpdated(index + 1, oldValue, inst.fabricObjectsData[index])
 				})
 			}
 	        fabricObj.setBackgroundImage(background, fabricObj.renderAll.bind(fabricObj));
@@ -169,17 +169,39 @@ PDFAnnotate.prototype.deleteSelectedObject = function () {
 	}
 }
 
-PDFAnnotate.prototype.savePdf = function () {
-	var inst = this;
-	var doc = new jsPDF();
-	$.each(inst.fabricObjects, function (index, fabricObj) {
-	    if (index != 0) {
-	        doc.addPage();
-	        doc.setPage(index + 1);
-	    }
-	    doc.addImage(fabricObj.toDataURL(), 'png', 0, 0);
-	});
-	doc.save('sample.pdf');
+// PDFAnnotate.prototype.savePdf = function () {
+//     var inst = this;
+//     var doc = new jsPDF();
+//     $.each(inst.fabricObjects, function (index, fabricObj) {
+//         if (index != 0) {
+//             doc.addPage();
+//             doc.setPage(index + 1);
+//         }
+//         doc.addImage(fabricObj.toDataURL(), 'png', 0, 0);
+//     });
+//     doc.save('sample.pdf');
+// }
+
+PDFAnnotate.prototype.savePdfToServer = function () {
+    var inst = this;
+    var doc = new jsPDF();
+    $.each(inst.fabricObjects, function (index, fabricObj) {
+        if (index != 0) {
+            doc.addPage();
+            doc.setPage(index + 1);
+        }
+        doc.addImage(fabricObj.toDataURL(), 'png', 0, 0);
+    });
+    // doc.save('sample.pdf');
+
+
+    var docs = doc.output();
+    var data = new FormData();
+    data.append("data" , docs);
+    var xhr = new XMLHttpRequest();
+    xhr.open( 'post', '/savepdf', true );
+    xhr.send(data);
+
 }
 
 PDFAnnotate.prototype.setBrushSize = function (size) {

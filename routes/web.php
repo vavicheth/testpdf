@@ -17,3 +17,10 @@ Route::get('/', function () {
 //    return asset('pdf/test.pdf');
     return view('pdfjsannotation');
 });
+
+Route::get('/test', function () {
+    return view('index');
+});
+
+//Route::get('/pdf','PDFController@index');
+Route::post('/savepdf','PDFController@savepdf');

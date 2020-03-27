@@ -193,14 +193,7 @@ PDFAnnotate.prototype.savePdfToServer = function () {
         doc.addImage(fabricObj.toDataURL(), 'png', 0, 0);
     });
     // doc.save('sample.pdf');
-
-
-    var docs = doc.output();
-    var data = new FormData();
-    data.append("data" , docs);
-    var xhr = new XMLHttpRequest();
-    xhr.open( 'post', '/savepdf', true );
-    xhr.send(data);
+    return doc.output('blob');
 
 }
 

@@ -23,4 +23,4 @@ Route::get('/test', function () {
 });
 
 //Route::get('/pdf','PDFController@index');
-Route::post('/savepdf','PDFController@savepdf');
+Route::post('/savepdf','PDFController@savepdf')->name('savepdf');

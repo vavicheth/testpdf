@@ -2,6 +2,7 @@
 <html>
 <head>
     <title></title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css">
@@ -153,7 +154,40 @@
     }
 
     function savePDF() {
-        pdf.savePdfToServer();
+        // pdf.savePdfToServer();
+        alert(pdf.savePdfToServer());
+        var doc = new jsPDF()
+        doc.text('Hello world! good time', 10, 10)
+
+        alert(doc.output('blob'));
+
+
+        // doc.save('/pdf/a4.pdf',10)
+        // doc.output('dataurlnewwindow', 'filename.pdf')
+        // window.open(doc.output('bloburl','test.pdf'))
+        // window.open(doc.output('bloburl'), '_blank');
+
+        // var blob = doc.output('blob');
+        var blob = pdf.savePdfToServer();
+        var formData = new FormData();
+        formData.append('pdf', blob);
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            }
+        });
+
+        $.ajax('/savepdf',
+            {
+                method: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(data){console.log(data)},
+                error: function(data){console.log(data)}
+            });
+
     }
 
     function clearPage() {

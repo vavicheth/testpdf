@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15d4d1e4-f557-4743-8946-e143f29c8c0b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TestPDF.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TestPDF.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PDFController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PDFController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/pdfjsannotation/pdfannotate.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pdfjsannotation/pdfannotate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/pdfjsannotation/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/pdfjsannotation/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pdfjsannotation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pdfjsannotation.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -190,7 +184,8 @@
       <workItem from="1584673576388" duration="4444000" />
       <workItem from="1585024999258" duration="6122000" />
       <workItem from="1585099874976" duration="9929000" />
-      <workItem from="1585184794649" duration="8235000" />
+      <workItem from="1585184794649" duration="8834000" />
+      <workItem from="1585272882262" duration="23018000" />
     </task>
     <servers />
   </component>
@@ -198,9 +193,9 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="616" y="240" key="run.anything.popup" timestamp="1585033635057">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1585285754070">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585033635057" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585285754070" />
   </component>
 </project>
